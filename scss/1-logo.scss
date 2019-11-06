@@ -1,0 +1,49 @@
+.logo {
+  width: 290px;
+  margin-bottom: 15px;
+  font-family: 'Impact', Arial, sans-serif;
+  font-weight: 400;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo__show {
+  font-size: 34.05px;
+  color: $color-static;
+  span {
+    color: $color-text;
+  }
+}
+
+.logo__description {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 14px;
+  line-height: 16px;
+  color: $color-text;
+}
+
+@media #{$tablet} {
+  .logo {
+    width: 260px;
+  }
+
+  .logo__show {
+    font-size: 32.98px;
+  }
+
+  .logo__description {
+    font-size: 12px;
+    line-height: 16px;
+  }
+}
+
+@media #{$desktop} {
+  .logo {
+    width: 280px;
+  }
+
+  .logo__show {
+    font-size: 40.9px;
+  }
+}

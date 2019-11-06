@@ -1,0 +1,70 @@
+.contacts {
+  display: none;
+  margin-bottom: 25px;
+}
+
+.contacts__item {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: $color-text;
+}
+
+.contacts__item:last-child {
+  width: 253px;
+  min-height: 65px;
+  span {
+    font-size: 14px;
+    font-weight: 600;
+    color: $color-text;
+  }
+}
+
+.contacts__important {
+  font-weight: 600;
+  color: $color-static;
+}
+
+.contacts__link {
+  font-weight: 600;
+  color: $color-static;
+  border-bottom: 2px dotted currentColor;
+}
+
+.contacts__whatsapp {
+  display: none;
+  width: 253px;
+  height: 45px;
+  border-radius: 10px;
+  background: $color-elem-dark;
+  color: $color-text;
+}
+
+@media #{$tablet} {
+
+}
+
+@media #{$desktop} {
+  .contacts {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    order: -1;
+  }
+
+  .contacts__item:last-child {
+    display: none;
+  }
+
+  .contacts__important {
+    font-weight: 600;
+    color: $color-static;
+  }
+
+  .contacts__link {
+    font-weight: 600;
+    color: $color-static;
+    border-bottom: 2px dotted currentColor;
+  }
+}

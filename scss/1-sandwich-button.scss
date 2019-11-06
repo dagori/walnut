@@ -1,0 +1,36 @@
+.open-menu {
+  width: 24px;
+  height: 15px;
+  border-top: 2px solid $color-text;
+  border-bottom: 2px solid $color-text;
+  box-shadow: inset 0px 1px 0px 0px $color-form-field,
+              inset 0px -1px 0px 0px $color-form-field;
+  background: transparent;
+  position: relative;
+  align-self: center;
+  &::before {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 1px;
+    left: 0;
+    top: 5px;
+    background: $color-text;
+    box-shadow: 0px 1px 0px 0px $color-form-field,
+                0px -1px 0px 0px $color-form-field;
+  }
+}
+
+@media #{$tablet} {
+  .open-menu {
+    order: -1;
+    background: green;
+    margin-right: 35px;
+  }
+}
+
+@media #{$desktop} {
+  .open-menu {
+    display: none;
+  }
+}

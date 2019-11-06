@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="Description" content="Чистка снега и наледи с кровли">
+    <title>SnowAlp</title>
+    <link href="build/css/style.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,800&display=swap&subset=cyrillic" rel="stylesheet">"
+  </head>
+  <body>
+    <script src="jquery.min.js" async></script>
+    <div class="container">
+      <header class="header">
+        <div class="menu-popup">
+          <button class="menu-popup__close" type="button" aria-label="Закрыть меню"></button>
+        </div>
+        <div class="logo">
+          <span class="logo__show">SNOW&nbsp;<span>ALP</span></span>
+          <span class="logo__description">Чистка снега и<br> наледи с кровли</span>
+        </div>
+        <button type="button" class="open-menu" aria-label="Открыть меню"></button>
+        <button type="button" class="open-phone-form" aria-label="Заполните форму и мы перезвоним вам"></button>
+        <div class="phone">
+          <a href="tel:+74953355353">+7 495 <span class="phone__body">335 53 53</span></a>
+        </div>
+        <ul class="menu">
+          <li class="menu__item"><a href="#">Цены</a></li>
+          <li class="menu__item"><a href="#">Преимущества</a></li>
+          <li class="menu__item"><a href="#">Отзывы</a></li>
+          <li class="menu__item"><a href="#">Контакты</a></li>
+        </ul>
+        <ul class="contacts">
+          <li class="contacts__item">Снег и лед могут появится неожидано, <span class="contacts__important">поэтому мы работаем 24/7</span></li>
+          <li class="contacts__item">Мы открыты для предложений и идей — <a class="contacts__important" href="mailto:hello@snow-alp.ru">hello@snow-alp.ru</a></li>
+          <li class="contacts__item">Мы легко можем перезвонить сами — <a class="contacts__link" href="#">обратный звонок</a></li>
+          <li class="contacts__item">
+            <a class="contacts__whatsapp" href="#">
+              <span>Написать в</span>
+              <img src="build/images/whatsapp.png" width="97" height="26" alt="WhatsApp">
+            </a>
+          </li>
+        </ul>
+      </header>
+      <div class="present">
+        <h1 class="present__title">Очистка снега с КРЫШ <span>промышленными альпинистами<i></i> от 25 руб/м<sup>2</sup></span></h1>
+        <p class="present__text">Оставьте заявку — в течение часа к вам выедет специалист</p>
+        <form class="request" action="#" method="post" enctype="multipart/form-data">
+          <input class="request__name request__field" type="text" value="Константин Сыромятников" name="customer" aria-label="Укажите Ваше имя">
+          <input class="request__phone request__field" type="tel"  value="#" name="phone"  aria-label="Укажите Ваш телефон">
+          <input class="request__agreement" type="checkbox" name="agreement" id="agreement">
+          <label for="agreement">Я согласен с <a href="#">политикой конфиденциальности</a> и даю согласие на обработку персональных данных</label>
+          <button class="request__submit" type="submit">Отправить заявку</button>
+        </form>
+      </div>
+      <div class="popup popup--request">
+        <h2 class="popup__title popup__title--request">Заявка на<br> обратный звонок</h2>
+        <button class="popup__close popup__close--request" type="button" aria-label="Закрыть всплывающее окно"></button>
+        <p class="popup__text popup__text--request">Оставьте заявку и мы перезвоним вам в течение 15 минут</p>
+        <form class="request popup__form" action="#" method="post" enctype="multipart/form-data">
+          <input class="request__name popup__field" type="text" value="Константин Сыромятников" name="customer" aria-label="Укажите Ваше имя">
+          <input class="request__phone popup__field" type="tel"  value="#" name="phone"  aria-label="Укажите Ваш телефон">
+          <input class="request__agreement popup__agreement" type="checkbox" name="agreement" id="agreement-2">
+          <label for="agreement-2">Я согласен с <a href="#">политикой конфиденциальности</a> и даю согласие на обработку персональных данных</label>
+          <button class="request__submit popup__submit" type="submit">Перезвоните мне</button>
+        </form>
+      </div>
+      <div class="popup popup--success">
+        <h2 class="popup__title popup__title--success">Заявка успешно<br> отправлена!</h2>
+        <button class="popup__close popup__close--success" type="button" aria-label="Закрыть всплывающее окно"></button>
+        <p class="popup__text popup__text--success">Спасибо за оставленную заявку, менеджер свяжется с вами в течение 15 минут</p>
+        <img class="popup__ok" src="build/images/success.svg" width="62" height="46" alt="Галочка">
+      </div>
+      <div class="overlay"></div>
+      <script src="build/js/inputmask.js"></script>
+      <script src="build/js/script.min.js"></script>
+    </div>
+  </body>
+</html>

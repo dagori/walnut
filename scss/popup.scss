@@ -1,0 +1,110 @@
+.container-2 {
+  width: 1900px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+}
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  min-width: 320px;
+  max-width: 600px;
+  padding: 55px 45px;
+  border-radius: 16px;
+  background-color: $color-popup;
+  text-align: center;
+}
+
+.popup__title {
+  margin-left: 22px;
+  flex-grow: 1;
+  font-weight: 600;
+  font-size: 30px;
+  color: $color-text;
+  line-height: 36px;
+}
+
+.popup__close {
+  position: absolute;
+  top: 60px;
+  right: 40px;
+  width: 22px;
+  height: 22px;
+  background: url('../images/close.svg');
+}
+
+.popup__text {
+  max-width: 385px;
+  margin: 20px auto 30px;
+  font-weight: 400;
+  font-size: 18px;
+  color: $color-text;
+  line-height: 24px;
+  &--success {
+    position: relative;
+    max-width: 600px;
+  }
+}
+
+.popup__ok {
+  flex-grow: 1;
+}
+
+/*Форма*/
+.popup__form {
+  width: 100%;
+  flex-direction: column;
+  input {
+    margin: 0;
+  }
+}
+
+.popup__field {
+  width: 100%;
+  height: 62px;
+  padding: 19px 35px;
+  background-color: $color-form-field;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 18px;
+  color: $color-text;
+  border: 2px solid transparent;
+}
+
+.popup__field:focus,
+.popup__field:active {
+  border: 2px solid $color-form-focus;
+}
+
+.popup__field:nth-child(even) {
+  margin: 20px 0 30px;
+  background: $color-form-field-dark;
+}
+
+.popup__agreement + label {
+  font-size: 12px;
+  padding: 0 0 0 30px;
+  a {
+    color: $color-text;
+  }
+}
+
+.popup__submit {
+  width: 298px;
+  margin: 25px auto 0;
+  background-color: $color-elem-dark;
+  &:hover {
+    background-color: $color-elem-dark-hover;
+  }
+}
+
+.popup {
+  display: none;
+}

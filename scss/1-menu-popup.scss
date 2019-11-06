@@ -1,0 +1,71 @@
+body {
+  background: lightgreen;
+}
+
+.menu-popup {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 300px;
+  max-width: 680px;
+  padding: 60px 25px;
+  background: $color-text;
+  z-index: 10;
+}
+
+.menu-popup.open {
+  display: block;
+}
+
+.menu-popup__close {
+  position: absolute;
+  z-index: 2;
+  top: 30px;
+  right: 40px;
+  width: 22px;
+  height: 22px;
+  background-color: transparent;
+  background-image: url('../images/close0.svg');
+}
+
+.menu.mobile {
+  display: flex;
+  flex-direction: column;
+  .menu__item {
+    margin-bottom: 28px;
+  }
+  a {
+    color: #000000;
+  }
+}
+
+.contacts.mobile {
+  display: flex;
+  flex-direction: column;
+  .contacts__item {
+    align-items: flex-start;
+    width: 255px;
+    margin-bottom: 20px;
+  }
+  .contacts__item, span {
+    color: #000000;
+  }
+  .contacts__item:last-child {
+    display: block;
+    margin-bottom: 80px;
+  }
+  .contacts__whatsapp {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 253px;
+    height: 45px;
+    border-radius: 10px;
+    padding: 0 30px;
+    background: $color-elem-dark;
+    span {
+      color: #ffffff;//$color-text;
+    }
+  }
+}
