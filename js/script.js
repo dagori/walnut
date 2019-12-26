@@ -1,39 +1,99 @@
-const openMenu = document.querySelector('.open-menu');
-const openPhoneForm = document.querySelector('.open-phone-form');
-const menu = document.querySelector('.menu');
-const contacts = document.querySelector('.contacts');
+$(document).ready(function() {
+  var headerContainer = $('.header__container');
+  var headerHeight = headerContainer.outerHeight();
 
-const menuPopup = document.querySelector('.menu-popup');
-const closeMenu = document.querySelector('.menu-popup__close');
+  var logo = $('.logo');
+  var phone = $('.phone');
+  var phoneButton = $('.open-phone-form');
 
-function openPopup() {
-  if(!menuPopup.classList.contains('open')) {
-    menuPopup.classList.add('open');
-    menu.classList.add('mobile');
-    contacts.classList.add('mobile');
-    menuPopup.appendChild(menu);
-    menuPopup.appendChild(contacts);
-    document.body.style.overflow = 'hidden';
+  var menu = $('.menu');
+  var contacts = $('.contacts');
+  var menuPopup = $('.menu-popup');
+  var requestForm = $('.popup--request');
+
+  function openMenu() {
+    menuPopup.addClass('open');
+    menu.addClass('mobile');
+    contacts.addClass('mobile');
+    menuPopup.append(menu);
+    menuPopup.append(contacts);
   }
-}
 
-function closePopup() {
-  if(menuPopup.classList.contains('open')) {
-    menuPopup.classList.remove('open');
-    menu.classList.remove('mobile');
-    contacts.classList.remove('mobile');
-    document.querySelector('.header').appendChild(menu);
-    document.querySelector('.header').appendChild(contacts);
-    document.body.style.overflow = '';
+  function closeMenu() {
+    menuPopup.removeClass('open');
+    menu.removeClass('mobile');
+    contacts.removeClass('mobile');
+    headerContainer.append(menu);
+    headerContainer.append(contacts);
   }
-}
 
-function createStick() {
-  
-  if(window.pageYOffset < 110) return;
+  function openRequestForm() {
+    $('.overlay').css({'display' : 'block'});
+    requestForm.css({'display' : 'block'});
+  }
 
-}
+  function closeRequestForm() {
+    requestForm.css({'display' : 'none'});
+    $('.overlay').css({'display' : 'none'});
+  }
 
-document.onscroll = createStick;
-openMenu.onclick = openPopup;
-closeMenu.onclick = closePopup;
+  function createStick() {
+    if($(window).scrollTop() < headerHeight && !headerContainer.parent().hasClass('stick')) return;
+    if($(window).scrollTop() < headerHeight && headerContainer.parent().hasClass('stick')) {
+      headerContainer.parent().removeClass('stick');
+      logo.children().last().css({'display' : 'block'}); // появляется текст к логотипу
+    } else {
+        headerContainer.parent().addClass('stick');
+        logo.children().last().css({'display' : 'none'}); // убрать текст к логотипу
+      }
+  }
+  $(document).scroll(createStick);
+
+  $(window).resize(function() {
+    if(menuPopup.hasClass('open') && $('body').width() >= 1270) { //??????????
+      closeMenu();
+    }
+  });
+
+  $('body').click(function(event) {
+    if(event.target.className === 'open-menu' && !menuPopup.hasClass('open')) {
+      openMenu();
+      return;
+    }
+    if(!event.target.closest('.menu-popup') && menuPopup.hasClass('open')) {
+      event.preventDefault();
+      closeMenu();
+      return;
+    }
+    if(event.target.className === 'menu-popup__close') {
+      closeMenu();
+      return;
+    }
+    if(event.target.className === 'open-phone-form' || event.target.className === 'contacts__link') {
+      openRequestForm();
+      return;
+    }
+    if(event.target.closest('.popup__close--request') || event.target.className === 'overlay') {
+      closeRequestForm();
+      return;
+    }
+  });
+
+  $('.request__phone').inputmask("+7 ( 999 ) 999 - 99 - 99");
+
+  $('.request').submit(function() {
+    event.preventDefault();
+    $.ajax({
+      type: 'POST',
+      url: '../../index.php',
+      data: $('.request').serialize(),
+      success: function(data) {
+        window.location = '/';
+        $('.popup--success').css({'display': 'block'});
+      },
+      error: function(jqXHR, textStatus, errorThrown) {
+        alert(textStatus + '____' + errorThrown);
+      }
+    });
+  });
+});

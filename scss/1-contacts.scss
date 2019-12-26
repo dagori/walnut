@@ -66,5 +66,8 @@
     font-weight: 600;
     color: $color-static;
     border-bottom: 2px dotted currentColor;
+    &:hover {
+      color: $color-hover;
+    }
   }
 }

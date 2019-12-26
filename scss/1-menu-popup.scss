@@ -1,7 +1,3 @@
-body {
-  background: lightgreen;
-}
-
 .menu-popup {
   display: none;
   position: absolute;
@@ -9,20 +5,22 @@ body {
   left: 0;
   min-width: 300px;
   max-width: 680px;
-  padding: 60px 25px;
+  padding: 30px 25px 60px;
   background: $color-text;
   z-index: 10;
 }
 
 .menu-popup.open {
-  display: block;
+  display: flex;
+  flex-direction: column;
 }
 
 .menu-popup__close {
-  position: absolute;
-  z-index: 2;
-  top: 30px;
-  right: 40px;
+  //position: absolute;
+  //z-index: 11;
+  // top: 30px;
+  // right: 40px;
+  align-self: flex-end;
   width: 22px;
   height: 22px;
   background-color: transparent;

@@ -58,7 +58,7 @@ function styles() {
 }
 
 function scripts() {
-  return src(['js/*.js', 'vendor/*.js'])
+  return src('js/*.js')
   .pipe(sourcemaps.init())
   .pipe(plumber())
   .pipe(babel({
@@ -69,6 +69,11 @@ function scripts() {
   .pipe(sourcemaps.write())
   .pipe(dest('build/js'))
   .pipe(browserSync.stream())
+}
+
+function lib() {
+  return src('vendor/*.js')
+  .pipe(dest('build/js'))
 }
 
 function serve() {
@@ -114,5 +119,5 @@ exports.js = scripts;
 exports.img = images;
 exports.clean = clean;
 exports.sprites = sprites;
-exports.build = series(clean, images, parallel(font, styles, scripts));
-exports.default = series(clean, images, parallel(font, styles, scripts, serve));
+exports.build = series(clean, images, parallel(font, styles, lib, scripts));
+exports.default = series(clean, images, parallel(font, styles, lib, scripts, serve));

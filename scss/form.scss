@@ -13,6 +13,10 @@
   color: $color-text;
 }
 
+.request__field:hover::placeholder {
+  color: $color-text;
+}
+
 .request__field:active {
   color: $color-text;
   box-shadow: 1px 1px 7px 0px $color-glow,

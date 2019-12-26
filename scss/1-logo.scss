@@ -26,6 +26,7 @@
 @media #{$tablet} {
   .logo {
     width: 260px;
+    order: 1;
   }
 
   .logo__show {

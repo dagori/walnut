@@ -1,11 +1,3 @@
-.container-2 {
-  width: 1900px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-
-}
-
 .popup {
   position: fixed;
   top: 50%;
@@ -20,6 +12,7 @@
   border-radius: 16px;
   background-color: $color-popup;
   text-align: center;
+  z-index: 10;
 }
 
 .popup__title {
@@ -81,6 +74,10 @@
 .popup__field:focus,
 .popup__field:active {
   border: 2px solid $color-form-focus;
+}
+
+.popup__field:hover::placeholder {
+  color: $color-text;
 }
 
 .popup__field:nth-child(even) {

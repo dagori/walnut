@@ -1,6 +1,6 @@
 .present {
+  padding: 160px 15px 47px;
   text-align: center;
-  padding: 47px 15px;
   margin: 0 auto;
 }
 
@@ -34,7 +34,7 @@
 
 @media #{$tablet} {
   .present {
-    padding: 15px 40px;
+    padding: 115px 40px 15px;
   }
 
   .present__title {
@@ -61,7 +61,7 @@
 @media #{$desktop} {
   .present {
     width: 1290px;
-    padding: 85px 0 0 0;
+    padding: 230px 0 0 0;
   }
 
   .present__title {

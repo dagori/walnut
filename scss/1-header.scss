@@ -1,18 +1,29 @@
 .header {
-  position: relative;
-  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  width: inherit;
   margin: 0 auto;
-  padding: 25px 15px 0;
+}
+
+.header__container {
+  //padding: 25px 15px 0;
+  width: 290px;
+  margin: 0 auto;
+  padding: 25px 0 0;
   display: flex;
   justify-content: space-between;
   align-content: space-between;
   flex-wrap: wrap;
-  background: red;
 }
 
 @media #{$tablet} {
-  .header {
-    padding: 30px 40px 0;
+  .header__container {
+  //  padding: 30px 40px 0;
+    width: 690px;
+    padding: 30px 0 0;
     justify-content: flex-start;
     align-content: center;
     align-items: baseline;
@@ -22,6 +33,10 @@
 
 @media #{$desktop} {
   .header {
+    max-width: 1920px;
+  }
+
+  .header__container {
     width: 1290px;
     padding: 30px 0 0;
     flex-wrap: wrap;
