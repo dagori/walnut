@@ -27,13 +27,15 @@ $(document).ready(function() {
     headerContainer.append(contacts);
   }
 
-  function openRequestForm() {
+  function openPopup(elem) {
     $('.overlay').css({'display' : 'block'});
-    requestForm.css({'display' : 'block'});
+    //requestForm.css({'display' : 'block'});
+    elem.css({'display' : 'block'});
   }
 
-  function closeRequestForm() {
-    requestForm.css({'display' : 'none'});
+  function closePopup(elem) {
+    //requestForm.css({'display' : 'none'});
+    elem.css({'display' : 'none'});
     $('.overlay').css({'display' : 'none'});
   }
 
@@ -70,29 +72,36 @@ $(document).ready(function() {
       return;
     }
     if(event.target.className === 'open-phone-form' || event.target.className === 'contacts__link') {
-      openRequestForm();
+      openPopup($('.popup--request'));
       return;
     }
-    if(event.target.closest('.popup__close--request') || event.target.className === 'overlay') {
-      closeRequestForm();
+    if(event.target.closest('.popup__close--request') || (event.target.className === 'overlay' && $('.popup--request').css('display') === "block")) {
+      closePopup($('.popup--request'));
+      return;
+    }
+    if(event.target.closest('.popup__close--success') || (event.target.className === 'overlay' && $('.popup--success').css('display') === "block")) {
+      closePopup($('.popup--success'));
       return;
     }
   });
 
-  $('.request__phone').inputmask("+7 ( 999 ) 999 - 99 - 99");
+  $('.request__phone').inputmask({
+    "mask": "+7 ( 999 ) 999 - 99 - 99",
+    "placeholder": "_"
+  });
 
   $('.request').submit(function() {
     event.preventDefault();
+    $.mockjax({url: '*'});
     $.ajax({
       type: 'POST',
-      url: '../../index.php',
       data: $('.request').serialize(),
-      success: function(data) {
-        window.location = '/';
-        $('.popup--success').css({'display': 'block'});
+      url: '*',
+      error: function(obj, textStatus, errorThrown) {
+        alert(textStatus + ': ' + errorThrown);
       },
-      error: function(jqXHR, textStatus, errorThrown) {
-        alert(textStatus + '____' + errorThrown);
+      success: function(data, text, obj) {
+        openPopup($('.popup--success'));
       }
     });
   });

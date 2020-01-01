@@ -5,8 +5,6 @@ body {
   font-family: 'Montserrat', Arial, sans-serif;
   background: #ffffff;
   box-sizing: border-box;
-  height: 300vh;
-  background: plum;
 }
 
 body * {
@@ -31,7 +29,7 @@ input, label, h1, h2, h3, button, ul, li, a, label, p, form {
   left: 0;
   right: 0;
   bottom: 0;
-  background: red;//$color-text;
+  background: $color-text;
   opacity: 0.5;
 }
 
@@ -66,4 +64,11 @@ input, label, h1, h2, h3, button, ul, li, a, label, p, form {
   .container__header {
     background: red;
   }
+}
+
+.block-mock {
+  width: 100%;
+  max-width: 1920px;
+  height: 200vh;
+  background: $color-static;
 }
