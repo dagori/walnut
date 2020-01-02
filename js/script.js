@@ -101,7 +101,9 @@ $(document).ready(function() {
         alert(textStatus + ': ' + errorThrown);
       },
       success: function(data, text, obj) {
+        $('.popup--request').css({'display' : 'none'});
         openPopup($('.popup--success'));
+        $('.request').trigger('reset');
       }
     });
   });

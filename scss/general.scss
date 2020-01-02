@@ -61,14 +61,12 @@ input, label, h1, h2, h3, button, ul, li, a, label, p, form {
     max-width: 1920px;
     background-image: url('../images/bg-desktop.jpg');
   }
-  .container__header {
-    background: red;
-  }
 }
 
 .block-mock {
+  margin: 0 auto;
   width: 100%;
   max-width: 1920px;
-  height: 200vh;
+  height: 100vh;
   background: $color-static;
 }
