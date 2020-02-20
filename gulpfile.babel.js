@@ -64,7 +64,7 @@ function scripts() {
   .pipe(babel({
     presets: ['@babel/env']
   }))
-  .pipe(uglify())
+//  .pipe(uglify())
   .pipe(rename({ extname: '.min.js' }))
   .pipe(sourcemaps.write())
   .pipe(dest('build/js'))

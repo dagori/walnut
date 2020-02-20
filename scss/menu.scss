@@ -31,4 +31,11 @@
       color: $color-text;
     }
   }
+
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .menu {
+      width: 500px;
+      flex-grow: 0;
+    }
+  }
 }

@@ -31,8 +31,20 @@
   margin: 20px auto;
 }
 
+.request__container {
+  margin: 0 auto;
+  position: relative;
+}
+
 .request__agreement {
-  display: none;
+  display: block;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+}
+
+.request__agreement:focus {
+  outline: 2px solid $color-static;
 }
 
 .request__agreement + label {
@@ -40,7 +52,6 @@
   font-weight: 400;
   font-size: 10px;
   color: $color-text;
-  position: relative;
   padding: 5px 0 0 30px;
   text-align: left;
   a {
@@ -77,10 +88,6 @@
     display: block;
   }
 }
-// 
-// .request__agreement + label:focus {
-//   outline: 2px solid $color-static;
-// }
 
 .request__submit {
   width: 291px;
@@ -131,6 +138,11 @@
     width: 410px;
     height: 64px;
     font-size: 18px;
+  }
+
+  .request__agreement {
+    width: 24px;
+    height: 24px;
   }
 
   .request__agreement + label {

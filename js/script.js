@@ -1,17 +1,22 @@
+'use strict';
 $(document).ready(function() {
   var headerContainer = $('.header__container');
   var headerHeight = headerContainer.outerHeight();
-
   var logo = $('.logo');
   var phone = $('.phone');
   var phoneButton = $('.open-phone-form');
-
   var menu = $('.menu');
   var contacts = $('.contacts');
   var menuPopup = $('.menu-popup');
-  var requestForm = $('.popup--request');
+  var WIDTH_LIMIT = 1270;
+
+  $('.request__phone').inputmask({
+    "mask": "+7 ( 999 ) 999 - 99 - 99",
+    "placeholder": "_"
+  });
 
   function openMenu() {
+    if(menuPopup.hasClass('open')) return;
     menuPopup.addClass('open');
     menu.addClass('mobile');
     contacts.addClass('mobile');
@@ -29,79 +34,80 @@ $(document).ready(function() {
 
   function openPopup(elem) {
     $('.overlay').css({'display' : 'block'});
-    //requestForm.css({'display' : 'block'});
     elem.css({'display' : 'block'});
   }
 
   function closePopup(elem) {
-    //requestForm.css({'display' : 'none'});
     elem.css({'display' : 'none'});
     $('.overlay').css({'display' : 'none'});
   }
 
   function createStick() {
-    if($(window).scrollTop() < headerHeight && !headerContainer.parent().hasClass('stick')) return;
-    if($(window).scrollTop() < headerHeight && headerContainer.parent().hasClass('stick')) {
-      headerContainer.parent().removeClass('stick');
+    if($(window).scrollTop() < headerHeight && !$('.header').hasClass('stick')) return;
+    if($(window).scrollTop() < headerHeight && $('.header').hasClass('stick')) {
+      $('.header').removeClass('stick');
       logo.children().last().css({'display' : 'block'}); // появляется текст к логотипу
     } else {
-        headerContainer.parent().addClass('stick');
+        $('.header').addClass('stick');
         logo.children().last().css({'display' : 'none'}); // убрать текст к логотипу
       }
   }
+
   $(document).scroll(createStick);
-
   $(window).resize(function() {
-    if(menuPopup.hasClass('open') && $('body').width() >= 1270) { //??????????
+    if(menuPopup.hasClass('open') && $('body').width() >= WIDTH_LIMIT) {
       closeMenu();
     }
   });
-
-  $('body').click(function(event) {
-    if(event.target.className === 'open-menu' && !menuPopup.hasClass('open')) {
-      openMenu();
-      return;
-    }
-    if(!event.target.closest('.menu-popup') && menuPopup.hasClass('open')) {
-      event.preventDefault();
+  //открыть меню в мобильной и планшетной версии
+  $('.open-menu').click(openMenu);
+  //закрыть меню в мобильной и планшетной версии
+  $('.menu-popup__close').click(closeMenu);
+  menuPopup.mouseleave(closeMenu);
+  //закрыть окно отправки формы
+  $('.popup__close--request').click(function() {
+    closePopup($('.popup--request'));
+  });
+  //закрыть сообщение успешной отправки формы
+  $('.popup__close--success').click(function() {
+    closePopup($('.popup--success'));
+  });
+  //открыть окно отправки формы
+  $('.open-phone-form').click(function() {
+    openPopup($('.popup--request'));
+  });
+  $('.contacts__link').click(function() {
+    event.preventDefault();
+    openPopup($('.popup--request'));
+  });
+  //зыкрыть меню при переходе по ссылке
+  $('.link').click(function() {
+    if(menuPopup.is(':visible')) {
       closeMenu();
-      return;
-    }
-    if(event.target.className === 'menu-popup__close') {
-      closeMenu();
-      return;
-    }
-    if(event.target.className === 'open-phone-form' || event.target.className === 'contacts__link') {
-      openPopup($('.popup--request'));
-      return;
-    }
-    if(event.target.closest('.popup__close--request') || (event.target.className === 'overlay' && $('.popup--request').css('display') === "block")) {
-      closePopup($('.popup--request'));
-      return;
-    }
-    if(event.target.closest('.popup__close--success') || (event.target.className === 'overlay' && $('.popup--success').css('display') === "block")) {
-      closePopup($('.popup--success'));
-      return;
     }
   });
-
-  $('.request__phone').inputmask({
-    "mask": "+7 ( 999 ) 999 - 99 - 99",
-    "placeholder": "_"
+  //закрыть попапы при клике по оверлэю
+  $('.overlay').click(function() {
+    $('.popup').each(function() {
+      if($(this).is(':visible')) {
+        closePopup($(this));
+      }
+    });
   });
+  //обработка отправки формы
 
   $('.request').submit(function() {
     event.preventDefault();
     $.mockjax({url: '*'});
     $.ajax({
       type: 'POST',
-      data: $('.request').serialize(),
+      data: $('.request').serializeArray(),
       url: '*',
       error: function(obj, textStatus, errorThrown) {
         alert(textStatus + ': ' + errorThrown);
       },
       success: function(data, text, obj) {
-        $('.popup--request').css({'display' : 'none'});
+        closePopup($('.popup--request'));
         openPopup($('.popup--success'));
         $('.request').trigger('reset');
       }

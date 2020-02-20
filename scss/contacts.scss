@@ -39,10 +39,9 @@
   border-radius: 10px;
   background: $color-elem-dark;
   color: $color-text;
-}
-
-@media #{$tablet} {
-
+  &:hover {
+    background: $color-elem-dark-hover;
+  }
 }
 
 @media #{$desktop} {

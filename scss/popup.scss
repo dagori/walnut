@@ -74,6 +74,11 @@
 .popup__field:focus,
 .popup__field:active {
   border: 2px solid $color-form-focus;
+  background: $color-form-field-active;
+}
+
+.popup__field:valid {
+  background: $color-form-field-active;
 }
 
 .popup__field:hover::placeholder {

@@ -65,8 +65,13 @@ input, label, h1, h2, h3, button, ul, li, a, label, p, form {
 
 .block-mock {
   margin: 0 auto;
-  width: 100%;
-  max-width: 1920px;
+  width: 320px;
   height: 100vh;
   background: $color-static;
+  @media #{$tablet} {
+    width: 768px;
+  }
+  @media #{$desktop} {
+    width: 1920px;
+  }
 }
