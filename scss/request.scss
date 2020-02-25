@@ -1,5 +1,6 @@
 .request {
   margin: 0 auto;
+  width: 290px;
 }
 
 .request__field {
@@ -104,6 +105,7 @@
   .request {
     display: flex;
     flex-wrap: wrap;
+    width: 690px; 
   }
 
   .request__field {

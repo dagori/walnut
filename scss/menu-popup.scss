@@ -16,10 +16,6 @@
 }
 
 .menu-popup__close {
-  //position: absolute;
-  //z-index: 11;
-  // top: 30px;
-  // right: 40px;
   align-self: flex-end;
   width: 22px;
   height: 22px;
@@ -63,7 +59,7 @@
     padding: 0 30px;
     background: $color-elem-dark;
     span {
-      color: #ffffff;//$color-text;
+      color: $color-text;
     }
   }
 }

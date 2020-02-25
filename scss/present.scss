@@ -5,6 +5,8 @@
 }
 
 .present__title {
+  max-width: 320px;
+  margin: 0 auto;
   font-size: 30px;
   font-weight: 800;
   color: $color-hover;
@@ -25,6 +27,7 @@
 }
 
 .present__text {
+  max-width: 320px;
   margin: 40px auto 26px;
   font-weight: 400;
   font-size: 16px;
@@ -34,10 +37,11 @@
 
 @media #{$tablet} {
   .present {
-    padding: 115px 40px 15px;
+    padding: 115px 0 15px; 
   }
 
   .present__title {
+    max-width: 100%;
     font-size: 40px;
     span {
       display: block;
@@ -50,6 +54,7 @@
   }
 
   .present__text {
+    max-width: 100%;
     margin: 23px auto 26px;
     font-weight: 400;
     font-size: 16px;

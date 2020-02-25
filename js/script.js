@@ -8,7 +8,7 @@ $(document).ready(function() {
   var menu = $('.menu');
   var contacts = $('.contacts');
   var menuPopup = $('.menu-popup');
-  var WIDTH_LIMIT = 1270;
+  var WIDTH_LIMIT = 1289;
 
   $('.request__phone').inputmask({
     "mask": "+7 ( 999 ) 999 - 99 - 99",
@@ -60,9 +60,18 @@ $(document).ready(function() {
     }
   });
   //открыть меню в мобильной и планшетной версии
-  $('.open-menu').click(openMenu);
+  $('.open-menu').click(function() {
+    event.stopPropagation();
+    openMenu();
+  });
   //закрыть меню в мобильной и планшетной версии
   $('.menu-popup__close').click(closeMenu);
+  $('body').click(function() {
+    if(menuPopup.hasClass('open') && !event.target.closest('.menu-popup open')) {
+      event.preventDefault();
+      closeMenu();
+    }
+  });
   menuPopup.mouseleave(closeMenu);
   //закрыть окно отправки формы
   $('.popup__close--request').click(function() {
@@ -95,7 +104,6 @@ $(document).ready(function() {
     });
   });
   //обработка отправки формы
-
   $('.request').submit(function() {
     event.preventDefault();
     $.mockjax({url: '*'});
