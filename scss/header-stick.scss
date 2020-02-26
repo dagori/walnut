@@ -1,8 +1,9 @@
 .stick {
   position: fixed;
   background-color: $color-stick;
-  .header__container {
-    width: 265px;
+  .header__inner-container {
+    width: 100%;
+    min-width: 265px;
     padding: 13px 0;
     flex-wrap: nowrap;
     align-items: center;
@@ -24,6 +25,7 @@
   }
 
   .logo {
+    min-width: auto;
     width: auto;
   }
 
@@ -34,7 +36,7 @@
 
 @media #{$tablet} {
   .stick {
-    .header__container {
+    .header__inner-container {
       width: 690px;
       padding: 15px 0;
       justify-content: space-between;
@@ -55,7 +57,7 @@
 
 @media #{$desktop} {
   .stick {
-    .header__container {
+    .header__inner-container {
       width: 1290px;
       padding: 20px 0;
       justify-content: space-around;

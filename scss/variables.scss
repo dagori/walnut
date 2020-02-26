@@ -1,5 +1,6 @@
-$tablet: (min-width: 690px);
-$desktop: (min-width: 1290px);
+$mobile-wide: (min-width: 360px);
+$tablet: (min-width: 700px); //690
+$desktop: (min-width: 1300px); //1290
 
 $color-hover: rgb(255, 230, 64);
 $color-static: rgb(80, 177, 215);

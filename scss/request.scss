@@ -62,8 +62,8 @@
   &::before {
     position: absolute;
     content: '';
-    width: 20px; //24 desktop
-    height: 20px; //24 desktop
+    width: 20px;
+    height: 20px;
     left: 0;
     top: 0;
     border-radius: 6px;
@@ -74,10 +74,10 @@
     display: none;
     position: absolute;
     content: '';
-    top: 5px; //6
-    left: 5px; //6
-    width: 10px; //12
-    height: 10px;  //12
+    top: 5px;
+    left: 5px;
+    width: 10px;
+    height: 10px;
     border-radius: 3px;
     background: $color-static;
     z-index: 3;
@@ -101,11 +101,19 @@
   background-color: $color-static;
 }
 
+@media #{$mobile-wide} {
+  .request {
+    width: 100%;
+    max-width: 390px;
+  }
+}
+
 @media #{$tablet} {
   .request {
     display: flex;
     flex-wrap: wrap;
-    width: 690px; 
+    width: 690px;
+    max-width: 690px;
   }
 
   .request__field {
@@ -134,6 +142,7 @@
 @media #{$desktop} {
   .request {
     width: 850px;
+    max-width: 850px;
   }
 
   .request__field {

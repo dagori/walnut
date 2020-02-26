@@ -5,6 +5,7 @@ body {
   font-family: 'Montserrat', Arial, sans-serif;
   background: #ffffff;
   box-sizing: border-box;
+  background-color: lightgrey;
 }
 
 body * {
@@ -34,12 +35,12 @@ input, label, h1, h2, h3, button, ul, li, a, label, p, form {
 }
 
 .container {
+  min-width: 320px;
   margin: 0 auto;
   background-image: url('../images/bg-mobile.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  background-color: lightgrey;
 }
 
 .btn:hover {
@@ -49,14 +50,15 @@ input, label, h1, h2, h3, button, ul, li, a, label, p, form {
 
 @media #{$tablet} {
   .container {
+    padding: 0 10px;
     background-image: url('../images/bg-tablet.jpg');
   }
 }
 
 @media #{$desktop} {
   .container {
-    width: 100%;
     max-width: 1920px;
+    padding: 0 0;
     background-image: url('../images/bg-desktop.jpg');
   }
 }
@@ -64,13 +66,6 @@ input, label, h1, h2, h3, button, ul, li, a, label, p, form {
 .block-mock {
   margin: 0 auto;
   width: 100%;
-  // width: 320px;
+  min-width: 320px;
   height: 100vh;
-  background: $color-static;
-  // @media #{$tablet} {
-  //   width: 768px;
-  // }
-  // @media #{$desktop} {
-  //   width: 1920px;
-  // }
 }

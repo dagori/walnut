@@ -1,6 +1,6 @@
 'use strict';
 $(document).ready(function() {
-  var headerContainer = $('.header__container');
+  var headerContainer = $('.header__inner-container');
   var headerHeight = headerContainer.outerHeight();
   var logo = $('.logo');
   var phone = $('.phone');

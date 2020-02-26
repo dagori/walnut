@@ -21,9 +21,14 @@
   }
 }
 
-@media #{$tablet} {
+@media #{$mobile-wide} {
   .open-menu {
     order: -1;
+  }
+}
+
+@media #{$tablet} {
+  .open-menu {
     margin: 0 35px 10px 0;
   }
 }

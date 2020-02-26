@@ -1,11 +1,11 @@
 .present {
+  min-width: 320px;
   padding: 160px 15px 47px;
   text-align: center;
   margin: 0 auto;
 }
 
 .present__title {
-  max-width: 320px;
   margin: 0 auto;
   font-size: 30px;
   font-weight: 800;
@@ -27,7 +27,6 @@
 }
 
 .present__text {
-  max-width: 320px;
   margin: 40px auto 26px;
   font-weight: 400;
   font-size: 16px;
@@ -37,11 +36,10 @@
 
 @media #{$tablet} {
   .present {
-    padding: 115px 0 15px; 
+    padding: 115px 0 15px;
   }
 
   .present__title {
-    max-width: 100%;
     font-size: 40px;
     span {
       display: block;
@@ -54,7 +52,6 @@
   }
 
   .present__text {
-    max-width: 100%;
     margin: 23px auto 26px;
     font-weight: 400;
     font-size: 16px;

@@ -1,10 +1,10 @@
 .phone {
   width: 200px;
-  font-style: 'Montserrat', sans-serif;
-  font-weight: 600;
-  font-size: 24px;
   order: 2;
   a {
+    font-style: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 24px;
     color: $color-text;
   }
 }
@@ -17,19 +17,29 @@
   color: $color-hover;
 }
 
+@media #{$mobile-wide} {
+  .phone {
+    text-align: right;
+    width: 100%;
+  }
+}
+
 @media #{$tablet}  {
   .phone {
     width: 268px;
-    text-align: right;
-    font-size: 30px;
     margin-left: auto;
+    a {
+      font-size: 30px;
+    }
   }
 }
 
 @media #{$desktop}  {
   .phone {
     width: 300px;
-    font-size: 36px;
     order: 3;
+    a {
+      font-size: 36px;
+    }
   }
 }

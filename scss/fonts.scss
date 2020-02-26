@@ -48,5 +48,6 @@
   font-weight: 400;
   font-display: swap;
   src: local('Impact'),
-       url('../fonts/Impact.woff2') format('woff2');
+       url('../fonts/Impact.woff2') format('woff2'),
+       url('../fonts/Impact.woff') format('woff');
 }
